@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<h1>Home</h1>
+
+    {#  <h2>{{ 10|price }}</h2>
+    <h2>{{ 10|price('$', 2, ',', ' ') }}</h2>#}
+    {{ 2|stars }}<br>
+    {{ 'now'|dateFR }}<br>
+    {% for adresse in adresses %}
+        <h2>{{ adresse.adresse1 }}</h2>
+        <h3>{{ adresse.adresse2 }}</h3>
+        <h4>{{ adresse.codePostal }}</h4>
+        <h4>{{ adresse.ville }}</h4>
+    {% endfor %}
+    <a href="{{ path('app_adresse') }}">Adresse Form</a>
+    <a href="{{ path('app_fournisseur') }}">Fournisseur form</a>
+    <a href="{{ path('app_article') }}">Article form</a>
+{% endblock %}
